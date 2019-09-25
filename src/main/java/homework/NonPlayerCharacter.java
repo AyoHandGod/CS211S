@@ -1,11 +1,26 @@
 package homework;
 
 /**
- * NPC class.
+ * Represents a Non-Player Character.
+ *
+ * @author Dante Anthony
  */
-public class NonPlayerCharacter extends Character {
+public class NonPlayerCharacter extends AbstractCharacter {
 
-    public NonPlayerCharacter(String name, String job) {
-        super(name, job, Character.DEFAULT_STARTING_HEALTH);
+    public static class NonPlayerCharacterBuilder extends
+            AbstractCharacterBuilder<NonPlayerCharacter, NonPlayerCharacterBuilder> {
+
+        @Override
+        protected NonPlayerCharacter getActual() {
+            return new NonPlayerCharacter();
+        }
+
+        @Override
+        protected NonPlayerCharacterBuilder getActualBuilder() {
+            return this;
+        }
     }
+
+    public NonPlayerCharacter(){}
+
 }

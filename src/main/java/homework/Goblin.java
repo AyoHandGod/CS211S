@@ -2,15 +2,24 @@ package homework;
 /**
  * Goblin Character type class.
  */
-public class Goblin extends Character {
+public class Goblin extends AbstractCharacter {
 
-    public Goblin(String name, String job) {
-        super(name, job, Character.DEFAULT_STARTING_HEALTH);
+    public static class GoblinBuilder extends AbstractCharacterBuilder<Goblin, GoblinBuilder> {
+
+        @Override
+        protected Goblin getActual() {
+            return new Goblin();
+        }
+
+        @Override
+        protected GoblinBuilder getActualBuilder() {
+            return this;
+        }
     }
 
     @Override
     public String toString() {
-        return "Goblin{ " + super.toString() + " }";
+        return "(Goblin) " + super.toString();
     }
 
     @Override
@@ -22,4 +31,5 @@ public class Goblin extends Character {
     public int hashCode() {
         return super.hashCode();
     }
+
 }
